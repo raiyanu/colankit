@@ -35,5 +35,8 @@
 		"library",
 		"components",
 		"colankit"
-	]
+	],
+	"dependencies": {
+		"sass": "^1.85.1"
+	}
 }
