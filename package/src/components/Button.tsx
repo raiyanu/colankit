@@ -1,25 +1,25 @@
 import React from "react";
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	children: React.ReactNode;
-	onClick?: () => void;
 };
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
+export const Button: React.FC<ButtonProps> = (props) => {
 	return (
 		<button
-			onClick={onClick}
 			style={{
 				padding: "10px 20px",
 				fontSize: "16px",
 				cursor: "pointer",
-				backgroundColor: "#007bff",
+				backgroundColor: "blue",
 				color: "#fff",
 				border: "none",
 				borderRadius: "4px",
+				outline: "none !important",
 			}}
+			{...props}
 		>
-			{children}
+			{props.children}
 		</button>
 	);
 };

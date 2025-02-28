@@ -5,7 +5,9 @@ function App() {
 		<>
 			<div className="card">
 				<h1>Colankit</h1>
-				<Button>Click me</Button>
+				<Button style={{ color: "green" }} onClick={() => alert("HEy there")}>
+					Click hey
+				</Button>
 			</div>
 		</>
 	);
