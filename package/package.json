@@ -1,6 +1,6 @@
 {
 	"name": "@raiyanu/colankit",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Colankit - A simple and modern React UI library",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
@@ -19,7 +19,8 @@
 		"build": "parcel build src/index.tsx",
 		"dev": "vite",
 		"prepare": "npm run build",
-		"test": "vitest"
+		"test": "vitest",
+		"pkg:publish": " npm version patch && npm publish --access public"
 	},
 	"peerDependencies": {
 		"react": ">=16.8"
