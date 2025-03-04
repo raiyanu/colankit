@@ -1,0 +1,67 @@
+:root {
+	--primary-color: #4a90e2;
+	--primary-color-active: #285894;
+	--secondary-color: #6c757d;
+	--secondary-color-active: #414649;
+	--white: #ffffff;
+}
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	user-select: none;
+}
+.primary {
+	background-color: blue;
+	color: white;
+}
+.primary:hover {
+	background-color: var(
+		--primary-color-active
+	); /* Darkened primary color by 10% */
+}
+.secondary {
+	background-color: gray;
+	color: white;
+}
+.secondary:hover {
+	background-color: var(--secondary-color-active);
+}
+.outline {
+	background-color: transparent;
+	color: blue;
+	border: 1px solid blue;
+}
+.outline:hover {
+	background-color: var(--primary-color);
+	color: var(--white);
+}
+.xs {
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.sm {
+	padding: 8px 16px;
+	font-size: 14px;
+}
+.md {
+	padding: 10px 20px;
+	font-size: 16px;
+}
+.lg {
+	padding: 12px 24px;
+	font-size: 18px;
+}
+.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	pointer-events: none;
+}

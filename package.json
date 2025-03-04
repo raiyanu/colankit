@@ -1,12 +1,13 @@
 {
 	"name": "@raiyanu/colankit",
-	"version": "0.0.0",
+	"version": "1.0.4",
 	"type": "module",
 	"files": [
-		"dist"
+		"dist",
+		"dist/**/*.css"
 	],
 	"module": "dist/colankit.js",
-	"main": "dist/index.js",
+	"main": "dist/colankit.js",
 	"exports": {
 		".": {
 			"import": "./dist/colankit.js",
@@ -15,9 +16,10 @@
 	},
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"build": "tsc -b && vite build && npm run copy-css",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"copy-css": "cpx 'src/**/*.css' dist"
 	},
 	"dependencies": {
 		"react": "^19.0.0",
