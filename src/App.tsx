@@ -4,7 +4,9 @@ function App() {
 	return (
 		<>
 			<h1>Test</h1>
-			<Button variant="primary"> hey there </Button>
+			<Button variant="outline" size="lg">
+				Hey there
+			</Button>
 		</>
 	);
 }

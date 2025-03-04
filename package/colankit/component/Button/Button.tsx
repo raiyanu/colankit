@@ -15,9 +15,9 @@ export const Button: React.FC<ButtonProps> = ({
 	size,
 	...rest
 }) => {
-	const buttonClass = `${Styles.btn} ${Styles.primary} ${variant ?? ""} ${
-		size ?? ""
-	} ${disabled ? "disabled" : ""}`;
+	const buttonClass = `${Styles.btn} ${Styles[variant ?? ""]} ${
+		Styles[size ?? ""]
+	} ${variant ?? ""} ${Styles[size ?? ""]} ${disabled ? Styles.disabled : ""}`;
 
 	return (
 		<button {...rest} className={buttonClass}>
