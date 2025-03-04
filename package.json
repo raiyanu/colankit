@@ -1,27 +1,37 @@
 {
-	"name": "colankit",
-	"private": true,
+	"name": "@raiyanu/colankit",
 	"version": "0.0.0",
 	"type": "module",
+	"files": [
+		"dist"
+	],
+	"module": "dist/colankit.js",
+	"main": "dist/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/colankit.js",
+			"require": "./dist/colankit.umd.js"
+		}
+	},
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"preview": "vite preview",
-		"relink": "rm -rf node_modules@raiyanu && npm link @raiyanu/colankit"
+		"preview": "vite preview"
 	},
 	"dependencies": {
-		"parcel": "^2.13.3",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.0.0",
+		"vite-tsconfig-paths": "^5.1.4"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.21.0",
+		"@types/node": "^22.13.9",
 		"@types/react": "^19.0.10",
 		"@types/react-dom": "^19.0.4",
 		"@vitejs/plugin-react": "^4.3.4",
 		"eslint": "^9.21.0",
-		"eslint-plugin-react-hooks": "^5.0.0",
+		"eslint-plugin-react-hooks": "^5.1.0",
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"globals": "^15.15.0",
 		"typescript": "~5.7.2",

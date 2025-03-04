@@ -1,55 +1,54 @@
-# colankit
+# React + TypeScript + Vite
 
-`colankit` is a simple React UI library.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Installation
+Currently, two official plugins are available:
 
-Install the package using npm or yarn:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-```bash
-npm install @raiyan/colankit
-# or
-yarn add @raiyan/colankit
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Usage
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-To use `colankit`, you need to wrap your app component with the `ColankitProvider` in your main file (e.g., `main.jsx` or `index.jsx`).
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### Wrapping the App Component
-
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ColankitProvider } from '@raiyan/colankit';
-import App from './App';
-
-ReactDOM.render(
-  <ColankitProvider>
-    <App />
-  </ColankitProvider>,
-  document.getElementById('root')
-);
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
 ```
-
-### Using the component
-
-Once you have wrapped your app component with the `NotificationProvider`, you can use the component anywhere inside the app component
-
-```jsx
-import React from 'react';
-import { Card } from '@raiyan/colankit';
-
-const MyComponent = () => { 
-  return (
-    <Card onClick={handleClick}>
-      Show Notification
-    </Card>
-  );
-};
-
-export default MyComponent;
-```
-## License
-
-This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-nc/4.0/](http://creativecommons.org/licenses/by-nc/4.0/).

@@ -1,14 +1,10 @@
 import "./App.css";
-import { Button } from "@raiyanu/colankit";
+import { Button } from "colankit";
 function App() {
 	return (
 		<>
-			<div className="card">
-				<h1>Colankit</h1>
-				<Button style={{ color: "green" }} onClick={() => alert("HEy there")}>
-					Click hey
-				</Button>
-			</div>
+			<h1>Test</h1>
+			<Button> hey there </Button>
 		</>
 	);
 }
