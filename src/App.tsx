@@ -4,7 +4,7 @@ function App() {
 	return (
 		<>
 			<h1>Test</h1>
-			<Button> hey there </Button>
+			<Button variant="primary"> hey there </Button>
 		</>
 	);
 }
