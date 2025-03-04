@@ -3,12 +3,13 @@ import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [react(), tsconfigPaths()],
+	plugins: [react(), tsconfigPaths(), libInjectCss()],
 	build: {
 		lib: {
 			entry: resolve(__dirname, "package/colankit/index.tsx"),
