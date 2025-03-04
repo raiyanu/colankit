@@ -1,24 +1,19 @@
 import React from "react";
+import "./ButtonStyle.css";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	children: React.ReactNode;
+	varient: "primary" | "secondary" | "outline";
+	disabled?: boolean;
+	size?: "xs" | "sm" | "md" | "lg";
 };
 
 export const Button: React.FC<ButtonProps> = (props) => {
+	const Style = `btn ${props.varient} ${props.disabled ? "disabled" : ""}
+			${props.size ? props.size : ""}`;
+
 	return (
-		<button
-			style={{
-				padding: "10px 20px",
-				fontSize: "16px",
-				cursor: "pointer",
-				backgroundColor: "blue",
-				color: "#fff",
-				border: "none",
-				borderRadius: "4px",
-				outline: "none !important",
-			}}
-			{...props}
-		>
+		<button {...props} className={Style}>
 			{props.children}
 		</button>
 	);
