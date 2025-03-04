@@ -3,52 +3,21 @@
 	"version": "1.0.1",
 	"description": "Colankit - A simple and modern React UI library",
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
+	"module": "dist/index.es.js",
 	"types": "dist/index.d.ts",
-	"buildOptions": {
-		"out": "dist"
-	},
-	"build": {
-		"out": "dist"
+	"scripts": {
+		"build": "tsc",
+		"prepare": "npm run build"
 	},
 	"files": [
 		"dist"
 	],
-	"scripts": {
-		"bundle:dev": "parcel watch src/index.tsx",
-		"build": "parcel build src/index.tsx",
-		"dev": "vite",
-		"prepare": "npm run build",
-		"test": "vitest",
-		"pkg:publish": " npm version patch && npm publish --access public"
-	},
 	"peerDependencies": {
-		"react": ">=16.8"
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
 	},
 	"devDependencies": {
-		"@parcel/packager-ts": "^2.13.3",
-		"@parcel/transformer-sass": "^2.13.3",
-		"@parcel/transformer-typescript-types": "^2.13.3",
-		"@types/react": "^19.0.10",
-		"esbuild-sass-plugin": "^3.3.1",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"typescript": "^5.7.3",
-		"vitest": "^1.6.1"
-	},
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/raiyanu/colankit"
-	},
-	"keywords": [
-		"react",
-		"ui",
-		"library",
-		"components",
-		"colankit"
-	],
-	"dependencies": {
-		"sass": "^1.85.1"
+		"typescript": "^5.0.0",
+		"sass": "^1.68.0"
 	}
 }
