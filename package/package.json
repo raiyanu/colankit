@@ -1,6 +1,6 @@
 {
 	"name": "@raiyanu/colankit",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Colankit - A simple and modern React UI library",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
@@ -12,6 +12,10 @@
 	"files": [
 		"dist"
 	],
+	"exports": {
+		"import": "./dist/index.esm.js",
+		"require": "./dist/index.cjs.js"
+	},
 	"peerDependencies": {
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
