@@ -3,8 +3,7 @@
 	"version": "1.0.5",
 	"type": "module",
 	"files": [
-		"dist",
-		"dist/**/*.css"
+		"dist"
 	],
 	"module": "dist/colankit.js",
 	"main": "dist/colankit.js",
@@ -12,14 +11,15 @@
 		".": {
 			"import": "./dist/colankit.js",
 			"require": "./dist/colankit.umd.js"
-		}
+		},
+		"./style.css": "./dist/colankit.css"
 	},
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build && npm run copy-css",
+		"build": "tsc -b && vite build ",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"copy-css": "cpx 'src/**/*.css' dist"
+		"pkg:publish": "npm run build && npm version patch && npm publish --access public"
 	},
 	"dependencies": {
 		"react": "^19.0.0",
