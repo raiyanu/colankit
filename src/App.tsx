@@ -58,7 +58,6 @@ function App() {
 					flexDirection: "column",
 				}}
 			>
-				<h1>Test</h1>
 				<Button variant="primary" size="lg" onClick={() => alert("Clicked")}>
 					Button
 				</Button>
