@@ -4,3 +4,4 @@ export {
 	ButtonGroup,
 	ButtonGroupItem,
 } from "./component/Button/Button";
+import "./App.css";
