@@ -7,6 +7,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	disabled?: boolean;
 	size?: "xs" | "sm" | "md" | "lg";
 	rounded?: boolean;
+	borderRadius?: string;
 };
 
 type ButtonGroupProps = React.ButtonHTMLAttributes<HTMLDivElement> & {
@@ -49,14 +50,23 @@ export const Button: React.FC<ButtonProps> = ({
 	variant,
 	disabled,
 	size,
+	borderRadius,
+	rounded,
 	...rest
 }) => {
 	const buttonClass = `${Styles.btn} ${Styles[variant ?? "primary"]} ${
 		Styles[size ?? ""]
-	} ${variant ?? ""} ${Styles[size ?? ""]} ${disabled ? Styles.disabled : ""}`;
+	} ${variant ?? ""} ${Styles[size ?? ""]} ${disabled ? Styles.disabled : ""} ${
+		rounded ? Styles.rounded : ""
+	}`;
 
+	const Style = {
+		borderRadius: borderRadius && rounded ? borderRadius : rounded ? "4px" : "",
+		"--border-radius":
+			borderRadius && rounded ? borderRadius : rounded ? "4px" : "",
+	};
 	return (
-		<button {...rest} className={buttonClass}>
+		<button {...rest} className={buttonClass} style={Style}>
 			{children}
 		</button>
 	);
@@ -87,6 +97,7 @@ export const IconButton: React.FC<ButtonProps> = ({
 	disabled,
 	size,
 	rounded,
+	borderRadius,
 	...rest
 }) => {
 	const buttonClass = `
@@ -99,9 +110,13 @@ export const IconButton: React.FC<ButtonProps> = ({
 	${disabled ? Styles.disabled : ""}
 	${rounded ? Styles.rounded : ""}
 	`;
+	const Style = {
+		borderRadius: borderRadius ?? "",
+		"--border-radius": borderRadius ?? "4px",
+	};
 
 	return (
-		<button {...rest} className={buttonClass}>
+		<button {...rest} className={buttonClass} style={Style}>
 			{children}
 		</button>
 	);
