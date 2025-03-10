@@ -94,6 +94,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: fit-content;
 }
 .btnGroup button {
 	border-radius: 0;
