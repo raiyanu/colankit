@@ -59,8 +59,13 @@ function App() {
 					flexDirection: "column",
 				}}
 			>
-				<Button variant="primary" size="lg" onClick={() => alert("Clicked")}>
-					Button
+				<Button
+					rounded={false}
+					variant="primary"
+					size="lg"
+					onClick={() => alert("Clicked")}
+				>
+					non round
 				</Button>
 				<Button variant="outline" size="lg">
 					Button
