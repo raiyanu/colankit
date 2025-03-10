@@ -28,6 +28,9 @@ jobs:
       - name: Add .nojekyll
         run: echo "" > ./storybook-static/.nojekyll
 
+      - name: Ensure Storybook Entry Point
+        run: cp ./storybook-static/index.html ./storybook-static/404.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
