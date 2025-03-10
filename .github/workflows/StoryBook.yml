@@ -1,46 +1,40 @@
-name: Deploy Storybook
+name: GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
-          cache: "npm"
+          node-version: "20"
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: Clean Old Build
-        run: rm -rf ./storybook-static
+      - run: npm ci
+      - run: npm run build-storybook
 
-      - name: Build Storybook
-        run: npm run build-storybook
-
-      - name: Verify Storybook Build
-        run: ls -R ./storybook-static
-
-      - name: Add .nojekyll
-        run: echo "" > ./storybook-static/.nojekyll
-
-      - name: Ensure Storybook Entry Point
-        run: cp ./storybook-static/index.html ./storybook-static/404.html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook-static
-          publish_branch: gh-pages
-          force_orphan: true
