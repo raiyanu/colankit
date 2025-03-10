@@ -22,8 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Clean Old Build
+        run: rm -rf ./storybook-static
+
       - name: Build Storybook
         run: npm run build-storybook
+
+      - name: Verify Storybook Build
+        run: ls -R ./storybook-static
 
       - name: Add .nojekyll
         run: echo "" > ./storybook-static/.nojekyll
