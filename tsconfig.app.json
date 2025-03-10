@@ -1,5 +1,11 @@
 {
+	"plugins": [
+		{
+			"name": "typescript-plugin-css-modules"
+		}
+	],
 	"compilerOptions": {
+		"types": ["vite/client"],
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 		"target": "ES2020",
 		"useDefineForClassFields": true,
@@ -7,7 +13,7 @@
 		"module": "ESNext",
 		"skipLibCheck": true,
 		"paths": {
-			"colankit": ["./package/colankit/index.tsx"]
+			"colankit": ["./package/colankit/*"]
 		},
 
 		/* Bundler mode */
@@ -25,5 +31,5 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true
 	},
-	"include": ["src"]
+	"include": ["package/colankit/**/*"]
 }
