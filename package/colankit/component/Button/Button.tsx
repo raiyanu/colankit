@@ -31,6 +31,9 @@ type ButtonGroupItemProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  * @param variant
  * @param disabled
  * @param size
+ * @param rounded
+ * @param borderRadius
+ * @param <ButtonHTMLAttributes<HTMLButtonElement>>
  * @returns
  * @description
  * Button component with 4 variants and 4 sizes
@@ -65,7 +68,7 @@ export const Button: React.FC<ButtonProps> = ({
 			borderRadius && rounded ? borderRadius : rounded ? "4px" : "",
 	};
 	return (
-		<button {...rest} className={buttonClass} style={Style}>
+		<button className={buttonClass} style={Style} {...rest}>
 			{children}
 		</button>
 	);
@@ -76,6 +79,8 @@ export const Button: React.FC<ButtonProps> = ({
  * @param disabled
  * @param size
  * @param rounded
+ * @param borderRadius
+ * @param <ButtonHTMLAttributes<HTMLButtonElement>>
  * @returns
  * @description
  * IconButton component with 4 variants and 4 sizes
@@ -114,7 +119,7 @@ export const IconButton: React.FC<ButtonProps> = ({
 	};
 
 	return (
-		<button {...rest} className={buttonClass} style={Style}>
+		<button className={buttonClass} style={Style} {...rest}>
 			{children}
 		</button>
 	);
@@ -173,7 +178,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
 	};
 
 	return (
-		<div {...rest} className={buttonClass} style={Style}>
+		<div className={buttonClass} style={Style} {...rest}>
 			{children}
 		</div>
 	);
@@ -202,7 +207,7 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = ({
 	`;
 
 	return (
-		<button {...rest} className={buttonClass}>
+		<button className={buttonClass} {...rest}>
 			{children}
 		</button>
 	);
