@@ -1,29 +1,29 @@
 import React from "react";
 import Styles from "./Button.module.css";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+interface ClickInterface {
 	children?: React.ReactNode;
 	variant?: "primary" | "secondary" | "outline" | "link";
-	disabled?: boolean;
+	disabled?: boolean; // Consider removing if redundancy is unwanted
 	size?: "xs" | "sm" | "md" | "lg";
 	rounded?: boolean;
 	borderRadius?: string;
-};
+}
 
-type ButtonGroupProps = React.ButtonHTMLAttributes<HTMLDivElement> & {
-	children?: React.ReactNode;
-	variant?: "primary" | "secondary" | "outline" | "link";
-	disabled?: boolean;
-	size?: "xs" | "sm" | "md" | "lg";
-	rounded?: boolean;
+interface ButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+		ClickInterface {}
+
+interface ButtonGroupProps
+	extends ClickInterface,
+		React.HTMLAttributes<HTMLDivElement> {
 	direction?: "vertical" | "horizontal";
-	borderRadius?: string;
-};
+}
 
-type ButtonGroupItemProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-	children?: React.ReactNode;
-	disabled?: boolean;
-};
+type ButtonGroupItemProps = Omit<
+	ButtonProps,
+	"variant" | "size" | "rounded" | "borderRadius"
+>;
 
 /**
  *
