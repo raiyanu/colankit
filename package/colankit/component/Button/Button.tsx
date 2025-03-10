@@ -31,7 +31,6 @@ type ButtonGroupItemProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  * @param variant
  * @param disabled
  * @param size
- * @param rest
  * @returns
  * @description
  * Button component with 4 variants and 4 sizes
@@ -77,7 +76,6 @@ export const Button: React.FC<ButtonProps> = ({
  * @param disabled
  * @param size
  * @param rounded
- * @param rest
  * @returns
  * @description
  * IconButton component with 4 variants and 4 sizes
@@ -130,7 +128,6 @@ export const IconButton: React.FC<ButtonProps> = ({
  * @param rounded
  * @param direction
  * @param borderRadius
- * @param rest
  * @returns
  * @description
  * ButtonGroup component with 4 variants and 4 sizes
@@ -142,7 +139,6 @@ export const IconButton: React.FC<ButtonProps> = ({
  * 	rounded
  * 	borderRadius="6px"
  * >
- * 	<ButtonGroupItem>Button</ButtonGroupItem>
  * 	<ButtonGroupItem>Button</ButtonGroupItem>
  * 	<ButtonGroupItem disabled>Button</ButtonGroupItem>
  * </ButtonGroup>
@@ -186,7 +182,6 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
 /**
  * @param children Inner content of the button
  * @param disabled
- * @param rest
  * @returns
  * @description
  * ButtonGroupItem component
