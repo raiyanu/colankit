@@ -1,10 +1,11 @@
 import React from "react";
 import Styles from "./Button.module.css";
-
+import useMousePosition from "../../hooks/useRelativeMousePosition";
+import useElementCenterPosition from "../../hooks/useElementCenterPosition";
 interface ClickInterface {
 	children?: React.ReactNode;
 	variant?: "primary" | "secondary" | "outline" | "link";
-	disabled?: boolean; // Consider removing if redundancy is unwanted
+	disabled?: boolean;
 	size?: "xs" | "sm" | "md" | "lg";
 	rounded?: boolean;
 	borderRadius?: string;
@@ -210,5 +211,45 @@ export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = ({
 		<button className={buttonClass} {...rest}>
 			{children}
 		</button>
+	);
+};
+
+interface MouseOverLayerButtonProps
+	extends React.HtmlHTMLAttributes<HTMLDivElement> {
+	children?: React.ReactNode;
+	button: React.ReactNode;
+}
+
+export const MouseOverLayerButton: React.FC<MouseOverLayerButtonProps> = ({
+	children,
+	button,
+	...rest
+}) => {
+	const {
+		position: { x, y },
+		sectionRef,
+		maskHovered,
+	} = useMousePosition();
+	const buttonRef = React.useRef<HTMLDivElement | null>(null);
+	const { x: centerX, y: centerY } = useElementCenterPosition({
+		buttonRef,
+		position: { x, y },
+	});
+	return (
+		<div className={Styles.MouseOverLayerButton} ref={sectionRef} {...rest}>
+			{children}
+			{button && maskHovered && (
+				<div
+					ref={buttonRef}
+					className={`${Styles.btnLayer} ${Styles.overLayerButton}`}
+					style={{
+						top: `${centerY}px`,
+						left: `${centerX}px`,
+					}}
+				>
+					{button}
+				</div>
+			)}
+		</div>
 	);
 };

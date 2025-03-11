@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: center;
 	font-weight: 500;
-	cursor: pointer;
 	transition: all 0.2s ease;
 	border: none;
 	outline: none;
@@ -11,6 +10,7 @@
 	user-select: none;
 	width: fit-content;
 	padding: 6px;
+	cursor: pointer;
 }
 .rounded {
 	border-radius: var(--border-radius);
@@ -21,21 +21,24 @@
 .btn:active {
 	transform: scale(0.97);
 }
-.btn.primary {
+.btn.primary,
+.overLayerButton .btn.primary:hover {
 	background-color: var(--primary-default-strong);
 	color: var(--grayscale-background);
 }
 .btn.primary:hover {
 	background-color: var(--primary-default);
 }
-.btn.secondary {
+.btn.secondary,
+.overLayerButton .btn.secondary:hover {
 	background-color: var(--secondary-default-strong);
 	color: var(--grayscale-background);
 }
 .btn.secondary:hover {
 	background-color: var(--secondary-default);
 }
-.btn.outline {
+.btn.outline,
+.overLayerButton .btn.outline:hover {
 	background-color: transparent;
 	color: var(--text-default-strong);
 	border: 1px solid var(--text-default-strong);
@@ -44,7 +47,8 @@
 	background-color: var(--primary-default-strong);
 	color: var(--grayscale-background);
 }
-.btn.link {
+.btn.link,
+.overLayerButton .btn.link:hover {
 	background-color: transparent;
 	color: var(--text-default-strong);
 	border: 1px solid transparent;
@@ -192,4 +196,21 @@
 	opacity: 0.6;
 	cursor: not-allowed;
 	pointer-events: none;
+}
+.MouseOverLayerButton {
+	position: relative;
+	overflow: hidden;
+	cursor: none;
+}
+.MouseOverLayerButton .btnLayer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--border-radius);
+	width: max-content;
+	height: max-content;
+	cursor: none;
+}
+.btnLayer button {
+	cursor: none;
 }
