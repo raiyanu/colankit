@@ -32,5 +32,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true
 	},
-	"include": ["package/colankit/**/*"]
+	"include": [
+		"package/colankit/**/*",
+		"src/stories/components/OverlayCursorButton.jsx"
+	]
 }
