@@ -11,6 +11,7 @@
 	width: fit-content;
 	padding: 6px;
 	cursor: pointer;
+	vertical-align: middle;
 }
 .rounded {
 	border-radius: var(--border-radius);
@@ -73,6 +74,9 @@
 .btn.lg {
 	padding: 12px 24px;
 	font-size: 18px;
+}
+.btn.icon {
+	aspect-ratio: 1;
 }
 .btn.xs.icon {
 	padding: 5px;
@@ -213,4 +217,65 @@
 }
 .btnLayer button {
 	cursor: none;
+}
+.btn .loader {
+	/* HTML: <div class="loader"></div> */
+	aspect-ratio: 1;
+	border-radius: 50%;
+	--_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+	-webkit-mask: var(--_m);
+	mask: var(--_m);
+	-webkit-mask-composite: source-out;
+	mask-composite: subtract;
+	animation: l3 1s infinite linear;
+	margin-right: 3px;
+}
+.btn.icon .loader {
+	margin-right: 0;
+}
+.btn.primary .loader {
+	background: var(--primary-background);
+}
+.btn.primary:hover .loader {
+	background: var(--primary-background);
+}
+.btn.secondary .loader {
+	background: var(--secondary-background);
+}
+.btn.secondary:hover .loader {
+	background: var(--secondary-background);
+}
+.btn.outline .loader {
+	background: var(--primary-default-strong);
+}
+.btn.outline:hover .loader {
+	background: var(--grayscale-background);
+}
+.btn.link .loader {
+	background: var(--text-default-strong);
+}
+.btn.link:hover .loader {
+	background: var(--text-default-strong);
+}
+.btn.xs .loader {
+	width: 8px;
+	padding: 1px;
+}
+.btn.sm .loader {
+	width: 12px;
+	padding: 2px;
+}
+.btn.md .loader {
+	width: 16px;
+	padding: 3px;
+}
+.btn.lg .loader {
+	width: 20px;
+	padding: 4px;
+}
+
+@keyframes l3 {
+	to {
+		transform: rotate(1turn);
+	}
 }

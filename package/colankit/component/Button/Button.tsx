@@ -9,6 +9,7 @@ interface ClickInterface {
 	size?: "xs" | "sm" | "md" | "lg";
 	rounded?: boolean;
 	borderRadius?: string;
+	loading?: boolean;
 }
 
 interface ButtonProps
@@ -55,6 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
 	size,
 	borderRadius,
 	rounded,
+	loading,
 	...rest
 }) => {
 	const buttonClass = `${Styles.btn} ${Styles[variant ?? "primary"]} ${
@@ -70,6 +72,7 @@ export const Button: React.FC<ButtonProps> = ({
 	};
 	return (
 		<button className={buttonClass} style={Style} {...rest}>
+			{loading && <div className={Styles.loader}></div>}
 			{children}
 		</button>
 	);
@@ -102,13 +105,14 @@ export const IconButton: React.FC<ButtonProps> = ({
 	size,
 	rounded,
 	borderRadius,
+	loading,
 	...rest
 }) => {
 	const buttonClass = `
 	${Styles.btn} 
+	${Styles.icon} 
 	${Styles[variant ?? "primary"]}  
 	${Styles[size ?? ""]} 
-	${Styles.icon} 
 	${variant ?? ""} 
 	${Styles[size ?? ""]} 
 	${disabled ? Styles.disabled : ""}
@@ -121,7 +125,7 @@ export const IconButton: React.FC<ButtonProps> = ({
 
 	return (
 		<button className={buttonClass} style={Style} {...rest}>
-			{children}
+			{loading ? <div className={Styles.loader}></div> : children}
 		</button>
 	);
 };

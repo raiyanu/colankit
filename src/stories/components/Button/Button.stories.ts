@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button } from "../../package/colankit/index";
+import { Button, IconButton } from "../../../../package/colankit/index";
 
 const meta = {
 	title: "Button",
@@ -19,6 +19,7 @@ const meta = {
 } satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
@@ -30,18 +31,27 @@ export const Primary: Story = {
 export const Secondary: Story = {
 	args: {
 		children: "Button",
+		variant: "secondary",
+		size: "md",
 	},
 };
 
-export const Large: Story = {
+export const Outline: Story = {
 	args: {
 		size: "lg",
 		children: "Button",
+		variant: "outline",
 	},
 };
 
-export const Small: Story = {
+export const LoadingButton: Story = {
 	args: {
 		children: "Button",
+		size: "sm",
+		borderRadius: "222px",
+		rounded: true,
+		loading: true,
+		variant: "primary",
+		disabled: false,
 	},
 };
