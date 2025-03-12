@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button, IconButton } from "../../../../package/colankit/index";
+import { Button } from "../../../../package/colankit/index";
 
 const meta = {
 	title: "Button",

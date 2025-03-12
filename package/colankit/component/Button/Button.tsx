@@ -203,16 +203,17 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
 export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = ({
 	children,
 	disabled,
+	loading,
 	...rest
 }) => {
 	const buttonClass = `
 	${Styles.btn} 
-	${Styles.icon} 
 	${disabled ? Styles.disabled : ""}
 	`;
 
 	return (
 		<button className={buttonClass} {...rest}>
+			{loading && <div className={Styles.loader}></div>}
 			{children}
 		</button>
 	);
@@ -224,6 +225,19 @@ interface MouseOverLayerButtonProps
 	button: React.ReactNode;
 }
 
+/**
+ * @param children Inner content of the button
+ * @param button
+ * @param <HtmlHTMLAttributes<HTMLDivElement>>
+ * @returns
+ * @description
+ * MouseOverLayerButton component
+ * @example
+ * <MouseOverLayerButton button={<Button>Click me</Button>}>
+ * 	<div>Hover me</div>
+ * </MouseOverLayerButton>
+ *
+ */
 export const MouseOverLayerButton: React.FC<MouseOverLayerButtonProps> = ({
 	children,
 	button,
